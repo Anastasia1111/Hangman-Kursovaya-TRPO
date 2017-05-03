@@ -97,7 +97,7 @@ if (Enter==13)
 HUD();
 
  char vvod[2];
- char Text[80]={"интерстеллар"};
+ char Text[80]={"инт"};
 
  system("cls");
  
@@ -106,7 +106,7 @@ HUD();
  while(Text[j]!='\0'){
 	 j++;	 
 }
-char otvet[j];
+char otvet[j+1];
 
 printf("Chislo bukv %d \n",j);
  
@@ -115,17 +115,18 @@ printf("Chislo bukv %d \n",j);
  wight=0;
  for (i=0;i<j;i++)
  {
- //setcolor(20);
- //rectangle(30+wight,755,60+wight,715);
- //wight+=30;
+ setcolor(20);
+ rectangle(30+wight,755,60+wight,715);
+ wight+=30;
  otvet[i]='_';
 }
+otvet[i]='\0';
  /////////////////////////////
  nevernii_otvet=0;
 while(nevernii_otvet!=12){
 	swit(nevernii_otvet);
 	vvod[0]=getch();
-	 outtextxy (770,770,vvod);
+	 outtextxy (700,750,vvod);
 
  t=0;
  i=0;
@@ -151,7 +152,7 @@ printf("Bookva %s povtorayenca %d raz\n" ,vvod,t);
  	Chislo_simvolov=0;
  	int qw=0;
  	
- for (qw=0;qw<=j;qw++)
+ for (qw=0;qw<j;qw++)
  {
  if (Text[qw]==otvet[qw]){
 Chislo_simvolov++;
@@ -179,6 +180,8 @@ outtextxy (35+wight,730,otvet);
 
 
 }
+outtextxy (35+wight,700,"Otvet:");
+outtextxy (275+wight,700,Text);
 }
 getch();
 closegraph();

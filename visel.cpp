@@ -88,7 +88,7 @@ int swit (int k)  {
 }
 
 int main(){
-	int Enter,Chislo_simvolov=0;
+	int Enter,Chislo_simvolov=0,x=700,y=750;
 autor();
 
 Enter=getch();
@@ -96,12 +96,12 @@ if (Enter==13)
 { 
 HUD();
 
- char vvod[2];
- char Text[80]={"инт"};
+ char vvod[2], A[80];
+ char Text[80]={"intellstellar"};
 
  system("cls");
  
- int j=0,i=0,t=0,nevernii_otvet=0,n=0,y=0;
+ int j=0,i=0,t=0,nevernii_otvet=0,n=0;
   
  while(Text[j]!='\0'){
 	 j++;	 
@@ -115,9 +115,9 @@ printf("Chislo bukv %d \n",j);
  wight=0;
  for (i=0;i<j;i++)
  {
- setcolor(20);
- rectangle(30+wight,755,60+wight,715);
- wight+=30;
+ //setcolor(20);
+ //rectangle(30+wight,755,60+wight,715);
+ //wight+=30;
  otvet[i]='_';
 }
 otvet[i]='\0';
@@ -126,7 +126,9 @@ otvet[i]='\0';
 while(nevernii_otvet!=12){
 	swit(nevernii_otvet);
 	vvod[0]=getch();
-	 outtextxy (700,750,vvod);
+	A[nevernii_otvet]=vvod[0];
+	
+	 
 
  t=0;
  i=0;
@@ -146,7 +148,11 @@ printf("Bookva %s povtorayenca %d raz\n" ,vvod,t);
 //////////
 
  if (t==0)
+ {	  settextstyle(0,0,5);
+ outtextxy (x,y,vvod);
+	 y-=50; if((nevernii_otvet+1)%10==0) x-=50;
  nevernii_otvet++;
+	}
  
  	i=0;
  	Chislo_simvolov=0;
@@ -159,7 +165,7 @@ Chislo_simvolov++;
  printf("\n q=%d j=%d\n",Chislo_simvolov,j);
 ////////////
  wight=0;
- settextstyle(0,0,5);
+ settextstyle(0,0,5);setcolor(20);
 outtextxy (35+wight,730,otvet);
 /* for (i=0;i<=qw;i++)
  {

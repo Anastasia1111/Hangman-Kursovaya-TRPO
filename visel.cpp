@@ -156,24 +156,6 @@ void RNDMWORD(char *t)
 }
 	
 
-/*COPYSTR(char *A, char *B, J)
-{
-	for(i=0;i<J;i++)
-	A[]
-}
-
-*/
-
-
-//////////////////////////////////////////////////////////////////////////////////////////
-
-
-
-
-
-
-
-
 
 int main()
 {
@@ -242,7 +224,7 @@ while(nevernii_otvet!=12)
 
 	A[nevernii_otvet]=vvod[0];
 
-	 
+	setcolor(20); bar(370,00, 430,80); setcolor(10); outtextxy (385, 30,vvod);
 
 
 
@@ -260,6 +242,7 @@ while(nevernii_otvet!=12)
 	if (vvod[0]==Accept[m])
  	t++;
  	
+ 	if ((vvod[0]<97) || (vvod[0]>122)) { t++; }
 
  	if (Text[i]==vvod[0])
 
@@ -344,8 +327,6 @@ outtextxy (55+qw*55,720,vvod);
 outtextxy (35,700,"Otvet:");
 
 outtextxy (275,700,CPY);
-
-
 
 getch();
 closegraph();

@@ -23,7 +23,7 @@ void GameOver () { setfillstyle(1,3);
 
  bar(0,0,800,800);
 
-settextstyle(0,0,15); setcolor(8); outtextxy(250,300,"GAME OVER"); }
+settextstyle(0,0,15); setcolor(8); outtextxy(200,300,"GAME OVER"); }
 
 void YouWin () {cleardevice(); setfillstyle(1,3);
 
@@ -94,7 +94,7 @@ outtextxy (400,400,"Hangman");
 
 settextstyle(9,0,3);
      
-outtextxy (295,500,"Press any key");
+outtextxy (295,500,"Press any key to start");
 
 getch();
 
@@ -109,51 +109,27 @@ settextstyle(9,0,3);
 
 }
 
+
 int swit (int k)  {
-
 	//setfillstyle(1,3);
-
 // bar(0,0,800,800);
-
 	printf("Case== %d",k);
-
-	
-
-	
-
 	switch (k){
-
-	
-
-			case 1:stand1 ();  break;
-
-			case 2:stand1 (); stand2 (); break;
-
-			case 3:stand1 (); stand2 (); stand3 ();  break;
-
-			case 4:stand1 (); stand2 (); stand3 (); ver(); break;
-
-			case 5:stand1 (); stand2 (); stand3 (); ver(); head(); break;
-
-			case 6:stand1 (); stand2 (); stand3 (); ver(); head(); telo(); break;
-
-			case 7:stand1 (); stand2 (); stand3 (); ver(); head(); telo(); rukal(); break;
-
-			case 8:stand1 (); stand2 (); stand3 (); ver(); head(); telo(); rukal(); rukar(); break;
-
-			case 9:stand1 (); stand2 (); stand3 (); ver(); head(); telo(); rukal(); rukar(); legl(); break;
-
-			case 10:stand1 (); stand2 (); stand3 (); ver(); head(); telo(); rukal(); rukar(); legl(); legr(); break;
-
-			case 11:GameOver(); break;
-
-			default: break;
-
-		}
-
-	
-
+	case 1:stand1 ();  break;
+	case 2:stand1 (); stand2 (); break;
+case 3:stand1 (); stand2 (); stand3 ();  break;
+	case 4:stand1 (); stand2 (); stand3 (); ver(); break;
+	case 5:stand1 (); stand2 (); stand3 (); ver(); head(); break;
+	case 6:stand1 (); stand2 (); stand3 (); ver(); head(); telo(); break;
+	case 7:stand1 (); stand2 (); stand3 (); ver(); head(); telo(); rukal(); break;
+	case 8:stand1 (); stand2 (); stand3 (); ver(); head(); telo(); rukal(); rukar(); break;
+	case 9:stand1 (); stand2 (); stand3 (); ver(); head(); telo(); rukal(); rukar(); legl(); break;
+	case 10:stand1 (); stand2 (); stand3 (); ver(); head(); telo(); rukal(); rukar(); legl(); legr(); break;
+	case 11:GameOver(); break; break;
+	default: break;
 }
+}
+
 
 void RNDMWORD(char *t)
 {
@@ -180,9 +156,13 @@ void RNDMWORD(char *t)
 }
 	
 
+/*COPYSTR(char *A, char *B, J)
+{
+	for(i=0;i<J;i++)
+	A[]
+}
 
-
-
+*/
 
 
 //////////////////////////////////////////////////////////////////////////////////////////
@@ -199,7 +179,7 @@ int main()
 {
 	
 	 
-	int rct=0, Enter, Chislo_simvolov=0, x=700, y=750, wight=0, qw=0, j=0, i=0, t=0, nevernii_otvet=0, n=0;
+	int rct=0, m, Enter, Chislo_simvolov=0, x=700, y=700, wight=0, qw=0, j=0, i=0, t=0, nevernii_otvet=0, n=0;
 
 
 autor();
@@ -207,14 +187,15 @@ autor();
 
  char vvod[2], A[80];
 
- char Text[80];
+ char Text[80], CPY[80], Accept[27];
 
 
 
  system("cls");
 
  RNDMWORD(Text);
-
+ 
+ strcpy(CPY, Text);
   
 
  while(Text[j]!='\0'){
@@ -237,8 +218,8 @@ printf("Chislo bukv %d \n",j);
 
  {
  	
-	otvet[i]='1';
- setcolor(10);
+ otvet[i]='1';
+ setcolor(20);
  rectangle(50+rct,755,100+rct,715);
  rct+=55;
 
@@ -252,15 +233,14 @@ otvet[i]='\0';
  /////////////////////////////
 
 
-while(nevernii_otvet!=12){
+while(nevernii_otvet!=12)
+{
 
 	swit(nevernii_otvet);
 
 	vvod[0]=getch();
 
 	A[nevernii_otvet]=vvod[0];
-
-	
 
 	 
 
@@ -272,7 +252,14 @@ while(nevernii_otvet!=12){
 
  while(Text[i]!='\0')
 
- {	 
+ {	
+ 	if (CPY[i]==vvod[0])
+ 	
+	 t++;
+ 	for(m=0;m<27;m++) 
+	if (vvod[0]==Accept[m])
+ 	t++;
+ 	
 
  	if (Text[i]==vvod[0])
 
@@ -280,7 +267,7 @@ while(nevernii_otvet!=12){
 
  	printf("%c\n",vvod[0]);
 
-	 t++;
+	 
 
 	 printf("\n q=%d j=%d\n",Chislo_simvolov,j);
 
@@ -301,15 +288,14 @@ printf("Bookva %s povtorayenca %d raz\n" ,vvod,t);
 
 
  if (t==0)
-
- {	  settextstyle(0,0,5);
-
- outtextxy (x,y,vvod);
-
-	 y-=50; if((nevernii_otvet+1)%10==0) x-=50;
-
- nevernii_otvet++;
-
+ {	  
+ 	settextstyle(0,0,5);
+	setcolor(4);
+	if(nevernii_otvet<11) outtextxy (x,y,vvod);
+	y-=50; if((nevernii_otvet+1)%10==0) x-=50;
+	
+	nevernii_otvet++;
+	Accept[nevernii_otvet]=vvod[0];
 	}
 
  
@@ -335,45 +321,33 @@ Chislo_simvolov++;
 
  wight=0;
 
- settextstyle(0,0,5);setcolor(20);
+ settextstyle(0,0,4);setcolor(10);
 
-outtextxy (50+qw*55,715,vvod);
-
-}
+outtextxy (55+qw*55,720,vvod);
 
 }
 
+}
 
 
- if (Chislo_simvolov==j){
 
- //	r=13;
-
+ if (Chislo_simvolov==j)
+{
   YouWin ();
-
   break;	
+}
 
 }
 
 
 
+outtextxy (35,700,"Otvet:");
 
-
-}
-
-for(i=0;i<j;i++)
-if(Text[i]!='2') otvet[i]=Text[i];
-
-outtextxy (35+wight,700,"Otvet:");
-
-outtextxy (275+wight,700,otvet);
+outtextxy (275,700,CPY);
 
 
 
 getch();
-
 closegraph();
-
 return 0;
-
 }

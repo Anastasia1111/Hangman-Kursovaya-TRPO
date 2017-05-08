@@ -6,7 +6,7 @@
 #include <windows.h>
 #include <locale.h>
 
-const int N=500; // sleep
+const int N=100; // sleep
 
 void stand1 () { setfillstyle(1,6); bar(30,650,500,700); }
 void stand2 () {setfillstyle(1,6); bar(50,680,100,100); }
@@ -181,17 +181,28 @@ void RNDMWORD(char *t)
 	
 
 
-int main(){
+
+
+
+
+//////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+
+
+
+
+
+int main()
+{
 	
 	 
+	int rct=0, Enter, Chislo_simvolov=0, x=700, y=750, wight=0, qw=0, j=0, i=0, t=0, nevernii_otvet=0, n=0;
 
-	int Enter,Chislo_simvolov=0,x=700,y=750;
 
 autor();
-
-
-
-
 
 
  char vvod[2], A[80];
@@ -204,8 +215,6 @@ autor();
 
  RNDMWORD(Text);
 
- int j=0,i=0,t=0,nevernii_otvet=0,n=0;
-
   
 
  while(Text[j]!='\0'){
@@ -213,7 +222,7 @@ autor();
 	 j++;	 
 
 }
-
+//printf("%d", j);
 char otvet[j+1];
 
 
@@ -224,21 +233,17 @@ printf("Chislo bukv %d \n",j);
 
  //////////////////////////////
 
- int wight;
-
- wight=0;
-
  for (i=0;i<j;i++)
 
  {
+ 	
+	otvet[i]='1';
+ setcolor(10);
+ rectangle(50+rct,755,100+rct,715);
+ rct+=55;
 
- //setcolor(20);
-
- //rectangle(30+wight,755,60+wight,715);
-
- //wight+=30;
-
- otvet[i]='_';
+ 
+ 
 
 }
 
@@ -246,7 +251,6 @@ otvet[i]='\0';
 
  /////////////////////////////
 
- nevernii_otvet=0;
 
 while(nevernii_otvet!=12){
 
@@ -312,9 +316,7 @@ printf("Bookva %s povtorayenca %d raz\n" ,vvod,t);
 
  	i=0;
 
- 	Chislo_simvolov=0;
 
- 	int qw=0;
 
  	
 
@@ -324,6 +326,7 @@ printf("Bookva %s povtorayenca %d raz\n" ,vvod,t);
 
  if (Text[qw]==otvet[qw]){
 
+Text[qw]='2';
 Chislo_simvolov++;
 
  printf("\n q=%d j=%d\n",Chislo_simvolov,j);
@@ -334,25 +337,9 @@ Chislo_simvolov++;
 
  settextstyle(0,0,5);setcolor(20);
 
-outtextxy (35+wight,730,otvet);
-
-/* for (i=0;i<=qw;i++)
-
- {
-
- setcolor(20);
-
-settextstyle(0,0,5);
-
-outtextxy (35+wight,730,otvet);
-
- wight+=30;
-
-///////////
+outtextxy (50+qw*55,715,vvod);
 
 }
-
-*/}
 
 }
 
@@ -374,9 +361,12 @@ outtextxy (35+wight,730,otvet);
 
 }
 
+for(i=0;i<j;i++)
+if(Text[i]!='2') otvet[i]=Text[i];
+
 outtextxy (35+wight,700,"Otvet:");
 
-outtextxy (275+wight,700,Text);
+outtextxy (275+wight,700,otvet);
 
 
 

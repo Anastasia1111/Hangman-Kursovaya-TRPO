@@ -11,7 +11,7 @@ const int N=100; // sleep
 void stand1 () { setfillstyle(1,6); bar(30,650,500,700); }
 void stand2 () {setfillstyle(1,6); bar(50,680,100,100); }
 void stand3 () {setfillstyle(1,6); bar(100,100,480,150); }
-void ver() {setlinestyle(0,0,4);setcolor(15); moveto(450,150); lineto(450,300); }
+void ver() {setcolor(15); moveto(450,150); lineto(450,300); }
 void head () {setcolor(20); circle(470,300,20); }
 void telo () {setcolor(20); moveto(450,300); lineto(450,400); }
 void rukal () {setcolor(20); moveto(450,305); lineto(445,350);moveto(445,350); lineto(455,370); }
@@ -110,7 +110,7 @@ settextstyle(9,0,3);
 }
 
 
-int swit (int k)  {
+  int swit (int k)  {
 	//setfillstyle(1,3);
 // bar(0,0,800,800);
 	printf("Case== %d",k);
@@ -131,14 +131,49 @@ case 3:stand1 (); stand2 (); stand3 ();  break;
 }
 
 
+
 void RNDMWORD(char *t)
 {
 	
 	FILE *f;
-	int r,i;
-	f=fopen("word.txt","r");
+	int r,i,k;
+
 	
 	srand(time(NULL)); r=rand()%1000; 
+	k=rand()%3;
+	cleardevice(); setfillstyle(1,3);
+ 	bar(0,0,800,800);  setcolor(9);  settextstyle(0,0,3);
+	switch(k)
+	{
+	case 0: 
+	{
+	f=fopen("words/animals.txt","r");
+	outtextxy(175,375,"The theme: ANIMALS");
+	getch();
+	bar(0,0,800,800); //settextstyle(0,0,4);
+	outtextxy(520,30,"ANIMALS");
+	break;
+	}
+	case 1:
+	{
+		f=fopen("words/games.txt","r"); 
+		outtextxy(175,375,"The theme: GAMES");
+		getch();
+		bar(0,0,800,800); //settextstyle(0,0,4);
+		outtextxy(520,30,"GAMES");
+		break;
+	}
+		case 2:
+	{
+		f=fopen("words/ancient greek gods.txt","r"); 
+		outtextxy(120,375,"The theme: GREEK GODS");
+		getch();
+		bar(0,0,800,800); //settextstyle(0,0,4);
+		outtextxy(480,30,"GREEK GODS");
+		break;
+	}
+	}
+	
 	printf("%d",r);
 	for(i=0;i<=r; i++)
 	if(getc(f)==EOF) 
@@ -152,7 +187,10 @@ void RNDMWORD(char *t)
 		fscanf(f,"%s",t);
 	}
 	printf("%s",t);
+	
 	fclose(f);
+//	
+	
 }
 	
 
@@ -165,7 +203,7 @@ int main()
 
 
 autor();
-
+setlinestyle(0,0,3);
 
  char vvod[2], A[80];
 
@@ -193,13 +231,13 @@ char otvet[j+1];
 printf("Chislo bukv %d \n",j);
 
  
-
+	
  //////////////////////////////
 
  for (i=0;i<j;i++)
 
  {
- 	
+ 
  otvet[i]='1';
  setcolor(20);
  rectangle(50+rct,755,100+rct,715);

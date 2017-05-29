@@ -143,7 +143,7 @@ void RNDMWORD(char *t)
 	k=rand()%3;
 	cleardevice(); setfillstyle(1,3);
  	bar(0,0,800,800);  setcolor(9);  settextstyle(0,0,3);
-	switch(k)
+	switch(1)
 	{
 	case 0: 
 	{
@@ -218,12 +218,12 @@ setlinestyle(0,0,3);
  strcpy(CPY, Text);
   
 
- while(Text[j]!='\0'){
-
-	 j++;	 
-
+for(i=0;Text[i]!='\0';i++)
+{
+	j++;
+	if(Text[i]=='_') Chislo_simvolov++;
 }
-//printf("%d", j);
+
 char otvet[j+1];
 
 
@@ -240,7 +240,7 @@ printf("Chislo bukv %d \n",j);
  
  otvet[i]='1';
  setcolor(20);
- rectangle(50+rct,755,100+rct,715);
+ if(Text[i]!='_')rectangle(50+rct,755,100+rct,715);
  rct+=55;
 
  

@@ -3,6 +3,7 @@
 #include <stdlib.h>
 #include <ctime>
 #include <graphics.h>
+#include <string.h>
 int swit (int k)  {
 
 	printf("Case== %d",k);

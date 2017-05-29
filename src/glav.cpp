@@ -1,5 +1,8 @@
 #include<graphics.h>
 #include<conio.h>
+
+const int N=100; //sleep
+
 void autor ()  {
 	
 

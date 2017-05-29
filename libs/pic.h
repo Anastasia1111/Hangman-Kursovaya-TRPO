@@ -11,4 +11,5 @@ void legl () ;
 void legr () ;
 
 void GameOver () ;
+void YouWin () ;
 void HUD ()  ;

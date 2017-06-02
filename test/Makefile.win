@@ -1,0 +1,37 @@
+# Project: Test Graphics
+# Makefile created by Dev-C++ 5.9.2
+
+CPP      = g++.exe
+CC       = gcc.exe
+WINDRES  = windres.exe
+OBJ      = dig.o pic.o Test.o compairtest.o
+LINKOBJ  = dig.o pic.o Test.o compairtest.o
+LIBS     = -L"D:/Dev-Cpp/MinGW64/lib32" -L"D:/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib32" -static-libgcc -lbgi -lgdi32 -luser32 -m32
+INCS     = -I"D:/Dev-Cpp/MinGW64/include" -I"D:/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"D:/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.8.1/include"
+CXXINCS  = -I"D:/Dev-Cpp/MinGW64/include" -I"D:/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"D:/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.8.1/include" -I"D:/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.8.1/include/c++"
+BIN      = test.exe
+CXXFLAGS = $(CXXINCS) -m32
+CFLAGS   = $(INCS) -m32
+RM       = rm.exe -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CPP) $(LINKOBJ) -o $(BIN) $(LIBS)
+
+dig.o: dig.cpp
+	$(CPP) -c dig.cpp -o dig.o $(CXXFLAGS)
+
+pic.o: pic.cpp
+	$(CPP) -c pic.cpp -o pic.o $(CXXFLAGS)
+
+Test.o: Test.cpp
+	$(CPP) -c Test.cpp -o Test.o $(CXXFLAGS)
+
+compairtest.o: compairtest.cpp
+	$(CPP) -c compairtest.cpp -o compairtest.o $(CXXFLAGS)

@@ -36,22 +36,27 @@ void RNDMWORD(char *t)
 	k=rand()%3;
 	cleardevice(); setfillstyle(1,3);
  	bar(0,0,800,800);  setcolor(9);  settextstyle(0,0,3);
-	switch(1)
+	switch(k)
 	{
 	case 0: 
 	{
 	f=fopen("words/animals.txt","r");
 	outtextxy(175,375,"The theme: ANIMALS");
-	getch();
+	outtextxy(175,375,"The theme: ANIMALS");
+	//getch();
+	Sleep(1500);
 	bar(0,0,800,800); //settextstyle(0,0,4);
 	outtextxy(520,30,"ANIMALS");
+	
 	break;
 	}
 	case 1:
 	{
 		f=fopen("words/games.txt","r"); 
 		outtextxy(175,375,"The theme: GAMES");
-		getch();
+		outtextxy(175,375,"The theme: GAMES");
+		//getch();
+		Sleep(1500);
 		bar(0,0,800,800); //settextstyle(0,0,4);
 		outtextxy(520,30,"GAMES");
 		break;
@@ -60,7 +65,9 @@ void RNDMWORD(char *t)
 	{
 		f=fopen("words/ancient greek gods.txt","r"); 
 		outtextxy(120,375,"The theme: GREEK GODS");
-		getch();
+		outtextxy(120,375,"The theme: GREEK GODS");
+		//getch();
+		Sleep(1500);
 		bar(0,0,800,800); //settextstyle(0,0,4);
 		outtextxy(480,30,"GREEK GODS");
 		break;

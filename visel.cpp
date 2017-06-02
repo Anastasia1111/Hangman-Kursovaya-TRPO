@@ -15,11 +15,16 @@ const int N=100; //sleep
 
 int main()
 {		 
-	int rct=0, m, Chislo_simvolov=0, x=700, y=700, wight=0, qw=0, j=0, i=0, t=0, n=0;
+
+
 
 autor();
 setlinestyle(0,0,3);
+char game = 'y';
+while(game=='y')
+{
 
+	int rct=0, m, Chislo_simvolov=0, x=700, y=700, wight=0, qw=0, j=0, i=0, t=0, n=0;
 char Text[80], CPY[80], Accept[27];
 system("cls");
 
@@ -52,6 +57,9 @@ outtextxy (35,700,"Otvet:");
 outtextxy (275,700,CPY);
 
 getch();
+outtextxy (35,600,"Again y/n");
+game=getch();
+}
 closegraph();
 return 0;
 }
